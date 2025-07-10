@@ -16,16 +16,14 @@ Fallback logic for malformed LLM responses
 
 # Setup Instructions
 
-2. Python Dependencies
+### Python Dependencies
 Install required packages:
 -pytesseract \
 -pdf2image \
 -Pillow \
 -pandas \
 -requests
-
-3. Install Poppler for PDF-to-Image Conversion
-Windows:
+### Install Poppler for PDF-to-Image Conversion
 
 Download from: https://github.com/oschwartz10612/poppler-windows/releases/
 
@@ -33,8 +31,7 @@ Extract to a location, e.g., C:\poppler-24.08.0\Library\bin
 
 Add this path to the system environment variable PATH
 
-4. Install Tesseract OCR
-Windows:
+### Install Tesseract OCR
 
 Download installer: https://github.com/tesseract-ocr/tesseract/wiki
 
@@ -52,7 +49,7 @@ Test it in a new Command Prompt:
 
 tesseract --version
 
-📂 Directory Structure
+##  Directory Structure
 
 project_root/
 │
@@ -80,12 +77,11 @@ Parse the returned JSON
 
 Save the final structured output in:
 drawings/All_Drawings_Metadata.csv
-
-🧪 Output Sample
+## Output Sample
 Filename	Drawing Number	Title	Revision	Date	Description
 DRG_001.pdf	ABC123	Pump Assembly Schematic	A	12-Mar-2023	Initial release
 
-🚀 Future Scope & Enhancements
+## Future Scope & Enhancements
 While Tesseract is effective, it has several limitations in layout-sensitive or low-quality scans. For better accuracy and robustness, the following enhancements are recommended:
 
 1. Use TrOCR (Transformer-based OCR)
@@ -114,5 +110,5 @@ Build a Streamlit dashboard or FastAPI service for users to upload and view draw
 
 Integrate with SharePoint, ERP, or PLM systems for real-time syncing.
 
-📞 Support & Contact
-For questions, integration support, or collaboration opportunities, feel free to reach out via [email@example.com] or open an issue in the GitHub repository.
+ ## Support & Contact
+For questions, integration support, or collaboration opportunities, feel free to reach out via [siddharth123658@gmail.com] or open an issue in the GitHub repository.
