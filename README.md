@@ -1,4 +1,4 @@
-Enterprise Chat Assistant for FCD & NCR Analysis – Version 2
+# Enterprise Chat Assistant for FCD & NCR Analysis – Version 5
 This repository contains a conversational AI application designed to assist with querying and analyzing Field Change Documents (FCD) and Non-Conformance Reports (NCR) using natural language. The assistant interprets user queries and returns precise, structured results or statistics, depending on the request.
 
 The application is built using Python, Pandas, LangChain, and Streamlit, with backend support from an NVIDIA LLM, and provides retrieval-augmented logic for querying engineering document workflows and delay records.
@@ -18,14 +18,14 @@ It is optimized for both web-based interaction and local desktop use.
 Core Logic and Functionality
 The system works by performing three key steps:
 
-1. Query Classification
+# 1. Query Classification
 Each user query is first categorized into one of the following:
 
 count: Returns numeric metrics like counts, ratios, averages (query using, "how many", "count", "total number", "number of")
 table: Lists documents filtered by project, stage, or delay (query using, "list", "display", "filter", "which", "entries", "table", "pending", "summarize", "overview", "highlights")
 summary: Generates table of required field in suggested format in prompt (if document context is loaded)
 chat: Fallback for general queries
-2. Prompt Construction
+# 2. Prompt Construction
 The build_pandas_prompt() function generates a detailed prompt that instructs the LLM to return executable Pandas code only, based on:
 
 Query intent
@@ -34,7 +34,7 @@ Filtering conditions (status, delay, user, project)
 Column selection rules
 You can modify the logic, rules, or formatting of the generated code by editing the build_pandas_prompt() function if needed.
 
-3. Code Execution
+# 3. Code Execution
 The generated Pandas code is executed within a controlled environment using a secure safe_execute_pandas_code() function. It validates, parses, and executes the code while safeguarding the data from unintended mutations.
 
 Data Preparation & Updates
@@ -53,7 +53,7 @@ C:\Temp\Py_Files_sid\ncr_data.parquet
 Copy these files into your GitHub repository to update the deployed application with the latest data.
 We can also automate this process to comit these files in github using github desktop and then change the path of batch file "run_data_parquet" which is currently set to "C:\Temp\Py_Files_sid", to the github desktop repository folder created. So every day it will get updated in morning and then will be commited to online github repo.
 
-How to Launch the Application
+# How to Launch the Application
 Web Interface
 You can access the hosted web version here:
 🔗 https://ai-projects-lnt-digital.streamlit.app/ (for Memory Enabled Query)
@@ -88,7 +88,7 @@ Repository Structure
 ├── llm_logic.py                      # For llm calling
 ├── README.md                         # Project documentation
 
-🚧 Future Enhancements
+# 🚧 Future Enhancements
 The following upgrades are under consideration for future versions:\
 🎙Voice-based input using NVIDIA Riva Speech-to-Text
 📊 Dashboard visualizations using Plotly or Power BI integration
