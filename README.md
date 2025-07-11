@@ -81,12 +81,12 @@ This will open a local Streamlit session with full functionality.
 
 Repository Structure
 
-├── data_paraquet_former.ipynb        # Prepares daily FCD & NCR data
-├── fcd_data.parquet                  # Field Change Document data
-├── ncr_data.parquet                  # Non-Conformance Report data
-├── streamlit_v2.py                   # Main app file (Streamlit UI)
-├── llm_logic.py                      # For llm calling
-├── README.md                         # Project documentation
+├── data_paraquet_former.ipynb        # Prepares daily FCD & NCR data \
+├── fcd_data.parquet                  # Field Change Document data \
+├── ncr_data.parquet                  # Non-Conformance Report data \
+├── streamlit_v2.py                   # Main app file (Streamlit UI) \
+├── llm_logic.py                      # For llm calling \
+├── README.md                         # Project documentation 
 
 # 🚧 Future Enhancements
 The following upgrades are under consideration for future versions:\
