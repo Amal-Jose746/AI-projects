@@ -14,6 +14,7 @@ import torch
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import textwrap
 
 from langchain.tools import tool
 from langchain_community.vectorstores import FAISS
@@ -72,31 +73,41 @@ def extract_requested_columns(query, available_columns):
             matched.append(col)
     return list(set(matched))
 
+# ----------------sanitization-------------------------
+
+def sanitize_llm_code(raw_code: str) -> str:
+    import re, textwrap
+
+    # Remove triple backticks and markdown if present
+    match = re.search(r"```(?:python)?\n(.*?)```", raw_code, re.DOTALL)
+    code = match.group(1) if match else raw_code
+
+    # Remove tabs, NBSPs, ZWSPs, and non-ASCII
+    code = (
+        code.replace("\t", "    ")
+            .replace("\u00A0", " ")
+            .replace("\u200B", "")
+            .encode("ascii", "ignore").decode("ascii")
+    )
+
+    # Remove blank lines and dedent
+    lines = [line.lstrip() for line in code.splitlines() if line.strip()]
+    return textwrap.dedent("\n".join(lines)).strip()
+
 
 # -------------------- SAFE PANDAS EXECUTION --------------------
 def safe_execute_pandas_code(code: str, df_NCR=None, df_FCD=None, user_query: str = "", intent: str = "table"):
     if not isinstance(code, str):
         return f"❌ Error: LLM returned a non-string response: {type(code)}"
 
-    match = re.search(r"```(?:python)?\n(.*?)```", code, re.DOTALL)
-    code_to_run = match.group(1).strip() if match else code.strip()
+     code_to_run = sanitize_llm_code(code)
 
-    # st.code(code_to_run, language="python")
-    # st.info("✅ [DEBUG] Generated code block shown above.")
-
-    code_to_run = re.sub(r"[^\x20-\x7E\n\t]", "", code_to_run)
-    code_to_run = re.sub(r"\b0+(\d+)", r"\1", code_to_run)
-
-    # Redirect print() of DataFrame-like objects to display()
     code_to_run = re.sub(
         r"print\s*\(\s*(filtered_df|result|output_df)\s*\)",
         r"display(ipyHTML(\1.to_html(index=False)))",
         code_to_run,
         flags=re.IGNORECASE
     )
-
-    # Replace plt.show() with Streamlit rendering
-    # code_to_run = re.sub(r"\bplt\.show\(\)", "st.pyplot(plt.gcf())", code_to_run)
 
     try:
         ast.parse(code_to_run)
