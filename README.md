@@ -44,14 +44,15 @@ fcd_data.parquet
 ncr_data.parquet
 These files are refreshed daily using a Jupyter notebook.
 
-Daily Data Update Workflow:
-Open the file data_paraquet_former.ipynb from this repository.
-Run all cells to extract and process the latest data.
-This will generate two updated files:
-C:\Temp\Py_Files_sid\fcd_data.parquet
-C:\Temp\Py_Files_sid\ncr_data.parquet
-Copy these files into your GitHub repository to update the deployed application with the latest data.
-We can also automate this process to comit these files in github using github desktop and then change the path of batch file "run_data_parquet" which is currently set to "C:\Temp\Py_Files_sid", to the github desktop repository folder created. So every day it will get updated in morning and then will be commited to online github repo.
+### Daily Data Update Workflow:
+-Open the file data_paraquet_former.ipynb from this repository \
+-Run all cells to extract and process the latest data \
+-This will generate two updated files:
+-C:\Temp\Py_Files_sid\fcd_data.parquet
+-C:\Temp\Py_Files_sid\ncr_data.parquet \
+-Copy these files into your GitHub repository to update the deployed application with the latest data
+
+-We can also automate this process to comit these files in github using github desktop and then change the path of batch file "run_data_parquet" which is currently set to "C:\Temp\Py_Files_sid", to the github desktop repository folder created. So every day it will get updated in morning and then will be commited to online github repo.
 
 # How to Launch the Application
 Web Interface
@@ -60,13 +61,13 @@ You can access the hosted web version here:
 
 These links launches the Streamlit-based Versions of the Retrieval-Augmented Chat Assistant.
 
-Run Locally (Desktop Version)
+## Run Locally (Desktop Version)
 To run the app locally on your desktop:
 
-Navigate to the following path in your system: C:\Temp\Py_Files_sid
-Open Command Prompt in that directory and execute:
-python -m streamlit run streamlit_test_2.py
-Replace streamlit_test_2.py with your specific script name if different.
+-Navigate to the following path in your system: C:\Temp\Py_Files_sid
+-Open Command Prompt in that directory (C:\Temp\Py_Files_sid) and execute:
+-python -m streamlit run streamlit_test_5.py
+-Replace streamlit_test_5.py with your specific script name if different.
 
 This will open a local Streamlit session with full functionality.
 
@@ -81,17 +82,17 @@ This will open a local Streamlit session with full functionality.
 
 Repository Structure
 
-├── data_paraquet_former.ipynb        # Prepares daily FCD & NCR data \
-├── fcd_data.parquet                  # Field Change Document data \
-├── ncr_data.parquet                  # Non-Conformance Report data \
-├── streamlit_v2.py                   # Main app file (Streamlit UI) \
-├── llm_logic.py                      # For llm calling \
-├── README.md                         # Project documentation 
+├─ data_paraquet_former.ipynb        # Prepares daily FCD & NCR data \
+├─ fcd_data.parquet                  # Field Change Document data \
+├─ ncr_data.parquet                  # Non-Conformance Report data \
+├─ streamlit_v2.py                   # Main app file (Streamlit UI) \
+├─ llm_logic.py                      # For llm calling \
+├─ README.md                         # Project documentation 
 
 # Future Enhancements
-The following upgrades are under consideration for future versions:\
+The following upgrades are under consideration for future versions: \
 
-- To get the the API key from user for faster operation, it can be done using and input column in UI to get the personalised API key from user which will be used in calling NVIDIA LLM. \
+- To get the the API key from user for faster operation, it can be done using and input column in UI to get the personalised API key from user which will be used in calling NVIDIA LLM. 
 - Voice-based input using NVIDIA Riva Speech-to-Text 
 - Dashboard visualizations using Plotly or Power BI integration 
 - Document-level semantic summarization using OCR and NLP 
