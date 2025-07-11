@@ -88,15 +88,15 @@ Repository Structure
 ├── llm_logic.py                      # For llm calling \
 ├── README.md                         # Project documentation 
 
-# 🚧 Future Enhancements
+# Future Enhancements
 The following upgrades are under consideration for future versions:\
 
--To get the the API key from user for faster operation, it can be done using and input column in UI to get the personalised API key from user which will be used in calling NVIDIA LLM. \
-🎙Voice-based input using NVIDIA Riva Speech-to-Text \
-📊 Dashboard visualizations using Plotly or Power BI integration \
-🧾 Document-level semantic summarization using OCR and NLP \
-🔐 Role-based authentication for enterprise deployment \
-💬 Multi-turn memory threading for more natural conversations \
+- To get the the API key from user for faster operation, it can be done using and input column in UI to get the personalised API key from user which will be used in calling NVIDIA LLM. \
+- Voice-based input using NVIDIA Riva Speech-to-Text \
+- Dashboard visualizations using Plotly or Power BI integration \
+- Document-level semantic summarization using OCR and NLP \
+- Role-based authentication for enterprise deployment \
+- Multi-turn memory threading for more natural conversations \
 
 # Contact & Contributions
 This application is developed by Siddharth Singh,
