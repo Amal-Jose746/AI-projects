@@ -264,9 +264,9 @@ You are working with two Pandas DataFrames:
 - df_NCR: Non-Conformance Reports (NCRs) with columns: {ncr_cols}
 - df_FCD: Field Change Documents (FCDs) with columns: {fcd_cols}
 
-🚫 NEVER include triple backticks (```) or markdown formatting.
-🚫 NEVER indent the first line of code — it must be flush-left.
-🚫 NEVER use tabs — use 4-space indent only if absolutely needed.
+NEVER include triple backticks (```) or markdown formatting.
+NEVER indent the first line of code — it must be flush-left.
+NEVER use tabs — use 4-space indent only if absolutely needed.
 
 Domain Context:
 - FCD stands for **Field Change Document** — it is a project engineering document.
@@ -366,7 +366,7 @@ Approval Time Calculation:
 - Use `Approval_Days` only if it is present; otherwise, compute it as shown.
 - For averages or ratios based on approval time, apply `df['Approval_Days'].mean()` etc. **only after** filtering `APPROVED` entries using `DOC_Status`.
 
-⛔ You MUST NOT use `print(...)` or `print(filtered_df)` for table display.
+You MUST NOT use `print(...)` or `print(filtered_df)` for table display.
 
 ✅ INSTEAD:
 - Always assign the result to a variable named `filtered_df`
@@ -381,7 +381,7 @@ display(ipyHTML(filtered_df.to_html(index=False)))
 - NEVER use: `print(filtered_df)` or `print(...)` for DataFrame display
 - NEVER show the full DataFrame unless explicitly asked
 
-🔧 Delay and Status Filtering:
+Delay and Status Filtering:
 - Always normalize `DOC_Status` before filtering:
   - WIP, IN PROGRESS, PENDING, NOT STARTED, ON HOLD, OPEN → WORK IN PROGRESS
   - DONE, FINISHED, COMPLETE, COMPLETED → APPROVED
