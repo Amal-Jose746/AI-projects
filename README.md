@@ -85,12 +85,16 @@ Repository Structure
 ├─ data_paraquet_former.ipynb        # Prepares daily FCD & NCR data \
 ├─ fcd_data.parquet                  # Field Change Document data \
 ├─ ncr_data.parquet                  # Non-Conformance Report data \
-├─ streamlit_v2.py                   # Main app file (Streamlit UI) \
-├─ llm_logic.py                      # For llm calling \
+├─ streamlit_test_5.py                   # Main app file (Streamlit UI) \
+├─ llm_logic_2.py                      # For llm calling (using -llama-4-scout-17b-16e-instruct, used with streamlit_test_5.py) \
+├─ streamlit_test_2.py                   # older version of app file (Streamlit UI) \
+├─ llm_logic_2.py                      # For llm calling (using -llama-4-scout-17b-128e-instruct, used with streamlit_test_2.py & st_graph_query.py) can be used with other app also just need to change name of model in llm logic file and generate new api key of that model which will be pasted in main app like streamlit_test_5.py \
+
+├─ st_graph_query.py                  # app file which can generate graph also. Callin llm_logic.py (Streamlit UI) \
 ├─ README.md                         # Project documentation 
 
 # Future Enhancements
-The following upgrades are under consideration for future versions: \
+The following upgrades are under consideration for future versions: 
 
 - To get the the API key from user for faster operation, it can be done using and input column in UI to get the personalised API key from user which will be used in calling NVIDIA LLM. 
 - Voice-based input using NVIDIA Riva Speech-to-Text 
